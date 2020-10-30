@@ -1,0 +1,12 @@
+.git/
+.vscode
+.idea
+.classpath
+..gitignore.swp
+.vscode/
+.settings/
+.project
+bin
+lib
+xx_not_for_git/
+properties

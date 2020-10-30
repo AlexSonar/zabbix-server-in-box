@@ -1,0 +1,54 @@
+
+version: '3.5'
+
+services:
+  postgres:
+    container_name: PG10v8-single-primaryDB
+    # image: postgres
+    # image: postgres:10.8-alpine
+    image: 83986f6d271a
+    environment:
+        # POSTGRES_USER: ${POSTGRES_USER:-postgres}
+        # POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-changeme}
+      POSTGRES_USER: ${POSTGRES_USER:-postgres}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-postgres}
+      POSTGRES_DB: single-primaryDB
+      PGDATA: /var/lib/postgresql/data/pgdata 
+    #   PGDATA: /data/postgres
+    volumes:
+        - ./data:/var/lib/postgresql/data/pgdata       
+    #    - ./pg_data:/var/lib/postgresql/data/pgdata
+    #    - postgres:/data/postgres
+    ports:
+      - "5449:5432"
+    networks:
+      - postgres
+    restart: always
+    # restart: unless-stopped
+  
+  # pgadmin:
+  #   container_name: pgadmin4_container
+  #   image: dpage/pgadmin4
+  #   environment:
+  #   #   PGADMIN_DEFAULT_EMAIL: ${PGADMIN_DEFAULT_EMAIL:-pgadmin4@pgadmin.org}
+  #   #   PGADMIN_DEFAULT_PASSWORD: ${PGADMIN_DEFAULT_PASSWORD:-admin}
+  #     PGADMIN_DEFAULT_EMAIL: ${PGADMIN_DEFAULT_EMAIL:-alex@test-fix.com}
+  #     PGADMIN_DEFAULT_PASSWORD: ${PGADMIN_DEFAULT_PASSWORD:-sports}
+  #   volumes:
+  #       - ./pgadmin4:/root/.pgadmin
+  #   #    - pgadmin:/root/.pgadmin
+  #   ports:
+  #   #   - "${PGADMIN_PORT:-5050}:80"
+  #     - "${PGADMIN_PORT:-5056}:80"
+  #   networks:
+  #     - postgres
+  #   restart: always
+  #   # restart: unless-stopped
+
+networks:
+  postgres:
+    driver: bridge
+
+volumes:
+    postgres:
+    # pgadmin:
