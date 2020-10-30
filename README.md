@@ -5,7 +5,13 @@
 
 # Project description
 
-finaly 
+There are many ways and options for building Zabbix projects
+one of the most common is a multi instance structure like:
+Zabbix-server + DB-Server(MySQL/Postgres or e) + Web-server(Ngnix/Apahe/Proxt)
+and many people prefer to deploy this from a group of ready-made containers.
+But the task of this project differs in that as a result we get a single build
+based on a single generalized instance presented in the form of a Docker image
+which in the future greatly facilitates the delivery and deployment of Zabbix.
  
 -----------------------------------------------------
 
@@ -18,6 +24,7 @@ finaly
 ## Prerequisites Optional
 
 - Pre requirement, Kubernetes installed
+- Pre requirement, Terraform installed
 
 -----------------------------------------------------
 
@@ -28,7 +35,7 @@ finaly
 * N3 Installation 
 * N4 Configyration
 * N5 First Start
-* N6 Use solution out of the box
+* N6 How use prepared solution out of the box
 
 ## Project Sructure
 
